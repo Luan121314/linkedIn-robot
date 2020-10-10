@@ -11,7 +11,7 @@ if(process.env.NODE_ENV !='PRODUCTION'){
 const register = new Register
 register.setStart()
 const connection = new Connection;
-const intervalInHours = 10
+const intervalInHours = 2
 const interval = 60000*intervalInHours; 
 console.log(`Started application with interval ${interval/60000} minuts`);
 
