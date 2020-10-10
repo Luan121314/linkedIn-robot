@@ -11,13 +11,13 @@ if(process.env.NODE_ENV !='PRODUCTION'){
 const register = new Register
 register.setStart()
 const connection = new Connection;
-const intervalInHours = 8
-const interval = 1000*60*60*intervalInHours; 
-console.log(`Started application with interval ${interval/3600000} hours`);
+const intervalInHours = 10
+const interval = 60000*intervalInHours; 
+console.log(`Started application with interval ${interval/60000} minuts`);
 
 setInterval(() => {
     connection.create();
-    // console.log('Creatting connection');
+    console.log('Creatting connection');
 }, interval);
 
 
