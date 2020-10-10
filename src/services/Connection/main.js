@@ -8,22 +8,21 @@ async function main() {
         maxConcurrency: 2,
         timeout: 200000,
         puppeteerOptions: {
-            devtools: true,
+            devtools:true,
             timeout: 0
         }
     });
     try {
 
         await cluster.task(task)
-        const result = await cluster.execute();
-        console.log(result);
+        await cluster.execute();
         await cluster.idle();
-        await cluster.close();
 
     } catch (error) {
         console.log(`Error ${pid} \n${error.stack}`);
+        console.log(`Error in process... \nProcess final forced !!` );
     } finally {
         await cluster.close();
     }
 }
-module.exports = main
+module.exports = main;

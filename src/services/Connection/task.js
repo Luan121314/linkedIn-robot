@@ -26,7 +26,7 @@ async function render({page}){
     await page.goto(BASE_URL+href_Network, {waitUntil: "networkidle2"});
     const results = await page.evaluate(navigationBrowser);
 
-    console.log(results);
+    console.log(`chanhged ${results.changedDocs} documents !`);
 
 
 }
