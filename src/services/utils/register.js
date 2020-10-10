@@ -23,14 +23,14 @@ class Register{
     setStart(){
         const file = readFileSync(pathFile);
         const fileJson = JSON.parse(file);
-        const started = new Date().toLocaleString()
+        const started = new Date().toISOString()
         const newFile = {...fileJson, started};
         writeFileSync(pathFile, JSON.stringify(newFile))
     }
     setLastRegister(){
         const file = readFileSync(pathFile);
         const fileJson = JSON.parse(file);
-        const lastRegister = new Date().toLocaleString()
+        const lastRegister = new Date().toISOString()
         const newFile = {...fileJson, lastRegister};
         writeFileSync(pathFile, JSON.stringify(newFile))
     }
