@@ -10,7 +10,11 @@ async function main() {
         maxConcurrency: 2,
         timeout: 200000,
         puppeteerOptions: {
-            timeout: 0
+            timeout: 0,
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+              ]
         }
     });
     try {
