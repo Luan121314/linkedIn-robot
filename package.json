@@ -1,5 +1,5 @@
 {
-  "name": "linkedIn_automatizado",
+  "name": "linkedin_automatizado",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "puppeteer": "^5.2.1"
+    "puppeteer": "^5.2.1",
+    "puppeteer-cluster": "^0.22.0"
   }
 }
