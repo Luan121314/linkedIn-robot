@@ -21,6 +21,7 @@ class Register{
         writeFileSync(pathFile, JSON.stringify(newFile))
     }
     setStart(){
+        this.resetRegister();
         const file = readFileSync(pathFile);
         const fileJson = JSON.parse(file);
         const started = new Date().toISOString()
@@ -33,6 +34,11 @@ class Register{
         const lastRegister = new Date().toISOString()
         const newFile = {...fileJson, lastRegister};
         writeFileSync(pathFile, JSON.stringify(newFile))
+    }
+
+    resetRegister(){
+       const register = {"totalConnectionCreated":0,"started":"","lastRegister":"","errors":0}
+       writeFileSync(pathFile, JSON.stringify(register));
     }
 }
 
