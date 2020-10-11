@@ -7,6 +7,11 @@ const Register = require('../utils/register');
 const navigationBrowser = ()=>{
     const elementViewAll = "Button.ph2.artdeco-button.artdeco-button--muted.artdeco-button--2.artdeco-button--tertiary.ember-view";
     const elementContact = "div.artdeco-modal__content.discover-cohort-recommendations-modal__content.ember-view li";
+    const boxScroll = document.querySelector('div.artdeco-modal__content.discover-cohort-recommendations-modal__content.ember-view');
+    // const scrollHeight = boxScroll.scrollHeight;
+    // while(scrollHeight > boxScroll.scrollTop){
+        // boxScroll.scrollTop = boxScroll.scrollTop + 1
+    // }
     let changedDocs = 0;
     document.querySelector(elementViewAll).click();
     const contacts = document.querySelectorAll(elementContact);
