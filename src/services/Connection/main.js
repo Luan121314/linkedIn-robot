@@ -10,12 +10,14 @@ async function main() {
         maxConcurrency: 2,
         timeout: 200000,
         puppeteerOptions: {
+            // devtools: true,
             timeout: 0,
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
-              ]
-        }
+            ]
+        },
+        
     });
     try {
 
@@ -26,7 +28,7 @@ async function main() {
     } catch (error) {
         register.setError();
         console.log(`Error pid :${pid} \n${error.stack}`);
-        console.log(`Error in process... \nProcess final forced !!` );
+        console.log(`Error in process... \nProcess final forced !!`);
     } finally {
         register.setLastRegister()
         await cluster.close();
