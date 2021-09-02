@@ -1,6 +1,7 @@
-const { Cluster } = require('puppeteer-cluster');
-const Register = require('../utils/register');
-const task = require('./task');
+import { Cluster } from "puppeteer-cluster";
+import Register from "../utils/register";
+import task from './task'
+
 
 async function main() {
     const register = new Register;
@@ -10,7 +11,7 @@ async function main() {
         maxConcurrency: 2,
         timeout: 200000,
         puppeteerOptions: {
-            // devtools: true,
+            devtools: true,
             timeout: 0,
             args: [
                 '--no-sandbox',
@@ -22,7 +23,7 @@ async function main() {
     try {
 
         await cluster.task(task)
-        await cluster.execute();
+        await cluster.execute(null);
         await cluster.idle();
 
     } catch (error) {
@@ -34,4 +35,4 @@ async function main() {
         await cluster.close();
     }
 }
-module.exports = main;
+export default main;

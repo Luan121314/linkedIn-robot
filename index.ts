@@ -1,8 +1,9 @@
-const Connection = require('./src/services/Connection/Connection');
-const dotenv = require('dotenv');
-const Register = require('./src/services/utils/register');
+import dotenv from 'dotenv'
+import Register from "./src/services/utils/register";
+import Connection from "./src/services/Connection/Connection";
 
-require('./src/config/server')();
+
+// require('./src/config/server')();
 
 if(process.env.NODE_ENV !='PRODUCTION'){
     dotenv.config()
@@ -11,7 +12,7 @@ if(process.env.NODE_ENV !='PRODUCTION'){
 const register = new Register
 register.setStart()
 const connection = new Connection;
-const intervalInMinuts = 60;
+const intervalInMinuts = 2;
 const interval = 60000*intervalInMinuts; 
 console.log(`Started application with interval ${interval/60000} minuts`);
 
