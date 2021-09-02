@@ -2,17 +2,18 @@ const BASE_URL = "https://www.linkedin.com";
 const href_login = "/login/pt?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin";
 const href_Network = "/mynetwork";
 
-const Register = require('../utils/register');
+import Register from '../utils/register'
+import {Page} from 'puppeteer'
 
-const scrolingFinalPage = () => {
+function scrolingFinalPage (){
     console.log('chamada');
-    const elementViewAll = "Button.ph2.artdeco-button.artdeco-button--muted.artdeco-button--2.artdeco-button--tertiary.ember-view";
-    document.querySelector(elementViewAll).click();
+    const selectorViewAll = "Button.ph2.artdeco-button.artdeco-button--muted.artdeco-button--2.artdeco-button--tertiary.ember-view";
+    const viewAllElement = document.querySelector(selectorViewAll) as HTMLButtonElement
+    viewAllElement.click()
     setTimeout(() => {
-        const boxScroll = document.querySelector('div.artdeco-modal__content.discover-cohort-recommendations-modal__content.ember-view');
+        const boxScroll = document.querySelector('div.artdeco-modal__content.discover-cohort-recommendations-modal__content.ember-view') as HTMLDivElement
         boxScroll.scrollTop = boxScroll.scrollHeight;
     }, 2000)
-    return {}
 }
 
 const navigationBrowser = () => {
@@ -20,17 +21,18 @@ const navigationBrowser = () => {
     let changedDocs = 0;
     const contacts = document.querySelectorAll(elementContact);
     contacts.forEach((contact) => {
-        contact.querySelector('footer Button').click();
+        const button = contact.querySelector('footer Button') as HTMLButtonElement
+        button.click();
         changedDocs++;
     });
     return changedDocs
 }
 
 
-async function render({ page }) {
+async function render({ page }: {page: Page}) {
     await page.goto(BASE_URL + href_login, { waitUntil: "networkidle2" });
-    await page.type("#username", process.env.EMAIL);
-    await page.type("#password", process.env.PASSWORD);
+    await page.type("#username", process.env.EMAIL || '');
+    await page.type("#password", process.env.PASSWORD || '');
     await page.keyboard.press('Enter');
 
     await page.waitFor(2000);
@@ -45,8 +47,9 @@ async function render({ page }) {
     // console.log(`changed ${results.changedDocs} documents !`);
     const register = new Register;
     register.registerConnection(results);
+    return 
 }
 
 
 
-module.exports = render
+export default render
