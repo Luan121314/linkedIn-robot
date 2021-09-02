@@ -2,9 +2,6 @@ import dotenv from 'dotenv'
 import Register from "./src/services/utils/register";
 import Connection from "./src/services/Connection/Connection";
 
-
-// require('./src/config/server')();
-
 if(process.env.NODE_ENV !='PRODUCTION'){
     dotenv.config()
     console.log('running in localhost');
