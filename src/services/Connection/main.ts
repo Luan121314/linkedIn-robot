@@ -11,7 +11,7 @@ async function main() {
         maxConcurrency: 2,
         timeout: 200000,
         puppeteerOptions: {
-            devtools: true,
+            // devtools: true,
             timeout: 0,
             args: [
                 '--no-sandbox',
@@ -23,6 +23,7 @@ async function main() {
     try {
 
         await cluster.task(task)
+
         await cluster.execute(null);
         await cluster.idle();
 
