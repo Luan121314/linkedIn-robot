@@ -4,7 +4,7 @@
 
 ## Installation
 
-- Clone project with git clone https://github.com/Luan121314/linkedIn-automatizado
+- Clone project with git clone https://github.com/Luan121314/linkedIn-robot
 - Install dependencies with yarn install or npm install
 - Enter your credentials in an .env file with the keys `PASSWORD` and `EMAIL`
 - Configure filters in `manifest` file
