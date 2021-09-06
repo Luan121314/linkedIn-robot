@@ -1,4 +1,4 @@
-## project
+## Project
 
 - With the idea of increasing my linkedIn connection, I automated this process using a robot.
 
@@ -12,7 +12,7 @@
 - Open file in src/resources/logs.json to view connection logs
 
 ## Configuration
-- The file manifest is responsable 
+- Configure the options of robot in `manifest` file
 
  ## Main Technologies and packages used
  
